@@ -1,0 +1,88 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.name{
+    padding: 3px;
+    margin: 7px;
+    font-size: 24px;
+}
+.pet{
+    margin: 10px;
+}
+/* 时钟 */
+#clock{
+    /* float: right; */
+    position: absolute;
+    top: 60px;
+    left: 62%;
+    /* margin:100px auto; */
+    border: none;
+    width: 400px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    font: bold;
+    font-size: 48px;
+    color: black;
+}
+
+/* 音乐播放 */
+#music-icon {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    bottom: 150px;
+    left: 85%;
+    padding: 5px;
+    /* 这里放你的图片的地址 */
+    background-image: url('music\ icon\ 2.png');
+    
+    background-size: cover;
+
+    /* pointer是鼠标(英语：cursor)在图标上的状态为可点击状态 */
+    cursor: pointer;
+
+    /* 动画效果:旋转 周期时间:10s 速度方式:线性(匀速) 周期数：无限*/
+    animation: rotate 10s linear infinite;
+
+    /* 控制动画的播放状态，实现暂停和恢复动画 */
+    /* （一开始是暂停的所以是paused） */
+    animation-play-state: paused;
+    /* 将图片旋转结束时的状态保持不变 */
+    animation-fill-mode: forwards;
+
+}
+.wo{
+    float: right;
+    margin-top: 25%;
+}
+#music-icon.play {
+    /* 添加图片旋转 */
+    animation-play-state: running;
+}
+@keyframes rotate {
+
+    /* 转个圈0°→360° */
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.exit{
+    float: right;
+    font-size: x-large;
+    margin-right: 60px;
+    margin-top: -40px;
+}
+a{
+    color: rgb(98, 98, 98);
+    text-decoration: none;
+}
+a:hover{
+    color: coral;
+}

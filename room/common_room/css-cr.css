@@ -1,0 +1,132 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-image: url('sky.jpg');
+    background-size: 100%;
+}
+a{
+    text-decoration: none;
+    background-color: inherit;
+    color: black;
+}
+a:hover{
+    color: white;
+}
+ol,ul,li{
+    list-style: none;
+}
+.testBody>header{
+    line-height: 50px;
+    background-color: rgb(255, 255, 255);
+}
+.testBody>nav{
+    font-size: 14px;
+    background-color:inherit;
+    height: 30px;
+}
+.testBody>nav>ul{
+    width: 100%;
+    background-color: inherit;
+}
+.testBody>nav>ul>li{
+    float: left;
+    padding: 5px 10px;
+    margin: 10px;
+    background-color: inherit;
+    border-style: double;
+    border-width: 3px;
+    border-radius: 12px;
+}
+.testBody>nav>ul>li>ul>li{
+    padding: 5px 10px;
+    background-color: inherit;
+    margin-top: 3px;
+    color: white;
+    border-radius: 12px;
+}
+.testBody>nav>ul>li>ul>li:hover{
+    background-color: rgb(159, 159, 159);
+}
+
+.testBody>nav>ul>li>ul{
+    display: none;
+}
+.testBody>nav>ul>li:hover{
+    color: white;
+    background-color: rgb(82, 82, 82);
+}
+.testBody>nav>ul>li:hover ul{
+    display: block;
+}
+.b1{
+    color: rgb(85, 85, 85);
+    font-size: larger;
+    margin: 10px;
+}
+button{
+    border: none;
+    background-color: inherit;
+    color: rgb(237, 246, 255);
+}
+
+/* 时钟 */
+#clock{
+    margin:100px auto;
+    border: none;
+    width: 400px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    font: bold;
+    font-size: 48px;
+    color: black;
+}
+
+
+/* 音乐播放 */
+#music-icon {
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+    margin-top: 25%;
+    margin-right: 50px;
+    float: right;
+    /* 这里放你的图片的地址 */
+    background-image: url('music\ icon\ 2.png');
+    
+    background-size: cover;
+
+    /* pointer是鼠标(英语：cursor)在图标上的状态为可点击状态 */
+    cursor: pointer;
+
+    /* 动画效果:旋转 周期时间:10s 速度方式:线性(匀速) 周期数：无限*/
+    animation: rotate 10s linear infinite;
+
+    /* 控制动画的播放状态，实现暂停和恢复动画 */
+    /* （一开始是暂停的所以是paused） */
+    animation-play-state: paused;
+    /* 将图片旋转结束时的状态保持不变 */
+    animation-fill-mode: forwards;
+
+}
+.wo{
+    float: right;
+    margin-top: 25%;
+}
+#music-icon.play {
+    /* 添加图片旋转 */
+    animation-play-state: running;
+}
+@keyframes rotate {
+
+    /* 转个圈0°→360° */
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" typr="text/css" href="css-cr.css">
+<script src="https://kit.fontawesome.com/98f2368b4b.js" crossorigin="anonymous"></script>
+<title>朝阳星光-通用教室</title>
+</head>
+<body>
+    <div class="testBody">
+        <button type="button" class="b1"><b>换个背景~/Choose your color:</b></button>
+        <nav>
+            <ul>
+                <li>
+                    蓝色系/Blue color
+                    <ul>
+                        <li><button type="button" onclick="changeBodyBg('royalblue');">宝蓝/Royalblue</button></li>
+                        <li><button type="button" onclick="changeBodyBg('cornflowerblue');">矢车菊蓝/Cornflowerblue</button></li>
+                        <li><button type="button" onclick="changeBodyBg('dodgerblue')">道奇蓝/Dodgerblue</button></li>
+                        <li><button type="button" onclick="changeBodyBg('deepskyblue')">深天蓝/Deepskyblue</button></li>
+                        <li><button type="button" onclick="changeBodyBg('skyblue')">天蓝/Skyblue</button></li>
+                        <li><button type="button" onclick="changeBodyBg('lightskyblue')">浅天蓝/Lightskyblue</button></li>
+                        <li><button type="button" onclick="changeBodyBg('aliceblue')">淡蓝/Aliceblue</button></li>
+                    </ul>
+                </li>
+                <li>
+                    绿色系/Green color
+                    <ul>
+                        <li><button type="button" onclick="changeBodyBg('teal')">蓝绿色/Teal</button></li>
+                        <li><button type="button" onclick="changeBodyBg('seagreen');">深海洋绿/Darkseagreen</button></li>
+                        <li><button type="button" onclick="changeBodyBg('mediumseagreen')">海洋绿/Seagreen</button></li>
+                        <li><button type="button" onclick="changeBodyBg('darkseagreen')">浅海洋绿/Mediumseagreen</button></li>
+                        <li><button type="button" onclick="changeBodyBg('forestgreen');">丛林绿/Forestgreen</button></li>
+                        <li><button type="button" onclick="changeBodyBg('olivedrab')">橄榄色/Olivedrab</button></li>
+                        <li><button type="button" onclick="changeBodyBg('palegreen')">淡绿色/Palegreen</button></li>
+                    </ul>
+                </li>
+                <li>
+                    淡马卡龙色系/Macaron color
+                    <ul>
+                        <li><button type="button" onclick="changeBodyBg('snow');">雪白/Snow</button></li>
+                        <li><button type="button" onclick="changeBodyBg('salmon');">三文鱼红/Salmon</button></li>
+                        <li><button type="button" onclick="changeBodyBg('lightpink')">淡粉/Lightpink</button></li>
+                        <li><button type="button" onclick="changeBodyBg('lavender')">薰衣草紫/Lavender</button></li>
+                        <li><button type="button" onclick="changeBodyBg('plum')">梅子色/Plum</button></li>
+                        <li><button type="button" onclick="changeBodyBg('paleturquoise')">淡绿松石/Paleturquoise</button></li>
+                        <li><button type="button" onclick="changeBodyBg('bisque')">浓汤色/Bisque</button></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/E:/Visual Thinking/room/index/first-P.html">退出教室/EXIT>><i class="fa fa-fw fa-home"></i></a>
+                </li>
+            </ul>
+        </nav>
+        
+    </div>
+    
+    <div id ="clock"></div>
+
+    <div id="music-icon"></div>
+    <!-- loop是播放完再播放（单曲循环） -->
+    <audio id="music" src="海浪.mp3" loop></audio>
+    <div class="wo">去做风吧，掀起层层海浪~</div>
+</body>
+<script>
+    /* 改变网页背景颜色 */
+    function changeBodyBg(color){
+        document.body.style.background = color;
+    }
+
+    //时钟
+    function showTime(clock){
+    var now = new Date();
+    var year = now.getFullYear();
+    var month= now.getMonth();
+    var day = now.getDate();
+    var hour = now.getHours();
+    var minu = now.getMinutes();
+    var second = now.getSeconds();
+    month = month+1;
+    var arr_work = new Array("SUN","MON","TUE","WED","THU","FRI","SAT");
+    var week = arr_work[ now.getDay()];
+    var time = year+"/"+month+"/"+day+"  "+ week+"  "+hour+":"+minu;
+    clock.innerHTML=time;
+    }
+    window.onload = function(){
+    var clock = document.getElementById("clock");
+    window.setInterval("showTime(clock)",1000);
+    }
+
+    //图标控制
+    var musicIcon = document.getElementById("music-icon");
+    //音乐控制
+    var music = document.getElementById("music");
+    //转动/播放（开始是停止的）
+    var isPlaying = false;
+    //音量设置为0.2(volume取值:0~1)
+    music.volume = 0.2
+    //鼠标点击监听器
+    musicIcon.addEventListener("click", function () {
+        if (isPlaying) {
+            //音乐暂停（js自带的函数）
+            music.pause();
+            //更新isPlaying为停止
+            isPlaying = false;
+            //移除 图标旋转类
+            musicIcon.classList.remove("play");
+        } else {
+            //音乐播放（js自带的函数）
+            music.play();
+            //更新isPlaying为播放
+            isPlaying = true;
+            //添加 图标旋转类
+            musicIcon.classList.add("play");
+        }
+    });
+</script>
+</html> 
